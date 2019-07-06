@@ -1,0 +1,27 @@
+<!--app-sidebar></app-sidebar-->
+<!--router-outlet></router-outlet-->
+<app-header></app-header>
+<div class="page-wrapper" [ngClass]="{'toggled' : getSideBarState()}" id="mydiv" *blockUI="'ui'">
+  <app-sidebar></app-sidebar>
+  <main class="page-content">
+
+    <!-- breadcrumb -->
+    <div class="col">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" *ngFor="let item of breadcrumbList; let i = index"
+          [class.active]="i===breadcrumbList.length-1">
+          <a [routerLink]="item.route" *ngIf="i!==breadcrumbList.length-1">
+            {{ item.title }}
+          </a>
+          <span *ngIf="i===breadcrumbList.length-1">{{ item.title }}</span>
+        </li>
+      </ol>
+    </div>
+
+    <router-outlet></router-outlet>
+  </main>
+  <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>
+
+
+</div>
+<!--The content below is only a placeholder and can be replaced.-->

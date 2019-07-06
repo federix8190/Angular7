@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <div class="card">
+    <h5 class="card-header">Persona</h5>
+    <div class="card-body">
+      <form  [formGroup]="formGroup" >
+
+        <div class="form-group row">
+          <label for="nombrePersona" class="col-sm-3 col-form-label">Nombres:*</label>
+          <div class="col-sm-8">
+            <input id="nombrePersona" type="text" name="nombres"
+                   formControlName="nombres" class="form-control" required>
+            <br>
+          <!--  <div *ngIf="nombrePersona.invalid && (nombrePersona.dirty || nombrePersona.touched)" class="alert alert-danger">
+               <div *ngIf="nombrePersona.errors.required">
+                Este campo es requerido
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="apellidoPersona" class="col-sm-3 col-form-label">Apellidos:*</label>
+          <div class="col-sm-8">
+            <input id="apellidoPersona" type="text"
+                    formControlName="apellidos" name="apellidos" class="form-control" required>
+            <br>
+           <!-- <div *ngIf="apellidoPersona.invalid && (apellidoPersona.dirty || apellidoPersona.touched)"
+              class="alert alert-danger">
+
+              <div *ngIf="apellidoPersona.errors.required">
+                Este campo es requerido
+              </div>
+            </div>-->
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="documentosPersona" class="col-sm-3 col-form-label">Documentos:*</label>
+          <div class="col-sm-8">
+            <input id="documentosPersona" type="text"
+                   formControlName="documentos" name="documentos" class="form-control"  required>
+            <br>
+           <!-- <div *ngIf="documentosPersona.invalid && (documentosPersona.dirty || documentosPersona.touched)"
+              class="alert alert-danger">
+
+              <div *ngIf="documentosPersona.errors.required">
+                Este campo es requerido
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="telefonosPersona" class="col-sm-3 col-form-label">Teléfono:*</label>
+          <div class="col-sm-8">
+            <input id="telefonosPersona" type="tel"
+                    formControlName="telefono" name="telefono" class="form-control"  required>
+            <br>
+           <!-- <div *ngIf="telefonosPersona.invalid && (telefonosPersona.dirty || telefonosPersona.touched)"
+              class="alert alert-danger">
+
+              <div *ngIf="telefonosPersona.errors.required">
+                Este campo es requerido
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="emailPersona" class="col-sm-3 col-form-label">Email:*</label>
+          <div class="col-sm-8">
+            <input id="emailPersona" type="email"
+                    formControlName="email" name="email" class="form-control" required>
+            <br>
+           <!-- <div *ngIf="emailPersona.invalid && (emailPersona.dirty || emailPersona.touched)" class="alert alert-danger">
+              <div *ngIf="emailPersona.errors.required">
+                Este campo es requerido
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <!--Fecha de Nacimiento --->
+        <div class="form-group row">
+          <label for="fechaNacimientoPersona" class="col-sm-3 col-form-label">Fecha de Nacimiento:*</label>
+          <div class="col-sm-8">
+                <app-datepicker></app-datepicker>
+          </div>
+        </div>
+
+        <!--Sexo --->
+        <div class="form-group row">
+          <label for="fechaNacimientoPersona" class="col-sm-3 col-form-label">Sexo:*</label>
+          <div class="col-sm-8">
+                  <app-sexo-radiobutton (cambioEstadoEmit)="setSexo($event)"></app-sexo-radiobutton>
+          </div>
+        </div>
+
+        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+
+              <button type="button" class="btn btn-warning">Limpiar</button>
+              <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+</div>
+

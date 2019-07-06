@@ -1,0 +1,9 @@
+{
+  "realm": "renew",
+  "auth-server-url": "http://desa03.konecta.com.py:8090/auth",
+  "ssl-required": "none",
+  "resource": "myApp",
+  "public-client": true
+}
+
+

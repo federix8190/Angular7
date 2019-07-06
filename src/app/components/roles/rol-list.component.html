@@ -1,0 +1,55 @@
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="card border-0 rounded-0">
+
+      <div class="card-body">
+
+        <div class="d-flex justify-content-between">
+          <div class="p-2 bd-highlight">
+            <button type="button" class="btn btn-secondary btn-sm" (click)="toggleFiltro()">Opciones
+              de filtrado<i class="fas fa-caret-down icon-btn"></i></button>&nbsp;&nbsp;
+
+          </div>
+        </div>
+        <div *ngIf="mostrarFiltro">
+          <div class="card card-body">
+            <form [formGroup]="filterRolForm">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="idRol">Nombre Rol</label>
+                  <input type="text" class="form-control form-control-sm" id="idRol" placeholder="Nombre Rol" formControlName="id">
+                </div>
+              </div>
+
+              <div class="form-row botones ">
+                <div class="col-md-12 col-md-offset-4">
+                  <button type="button" class="btn btn-light btn-sm boton" (click)="limpiar()">Limpiar<i class="fas fa-broom icon-btn"></i></button>
+                  <button type="button" class="btn btn-success btn-sm boton" (click)="buscar()">Buscar<i class="fas fa-search icon-btn"></i></button>
+
+
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+        <div>
+          <ng2-slim-loading-bar [color]="'blue'"></ng2-slim-loading-bar>
+          <div class="table-responsive">
+            <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustomAction($event)"></ng2-smart-table>
+          </div>
+          <div class="d-flex justify-content-end">
+            <div class="p-2 bd-highlight pager">Filas por página {{ paginator.cantidad
+              }}&nbsp;&nbsp;&nbsp;&nbsp;{{paginator.desde}}-{{paginator.hasta}} de {{paginator.total}} </div>
+            <i class="fa fa-angle-left action p-2 bd-highlight pager" aria-hidden="true" (click)="pagination(-1)"></i>&nbsp;&nbsp;
+            <i class="fa fa-angle-right action p-2 bd-highlight pager" aria-hidden="true" (click)="pagination(1)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

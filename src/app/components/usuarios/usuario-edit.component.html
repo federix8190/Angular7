@@ -1,0 +1,184 @@
+<div class="container-fluid">
+  <div class="card">
+    <h5 class="card-header">Usuario</h5>
+    <div class="card-body">
+      <form [formGroup]="usuarioForm" >
+
+
+        <div class="form-group row">
+          <label for="nombreUsu" class="col-sm-3 col-form-label">Nombres:</label>
+          <div class="col-sm-8">
+            <input id="nombreUsu" type="text" formControlName="nombreUsuario" class="form-control" required>
+            <br>
+            <div *ngIf="f.nombreUsuario.invalid && (f.nombreUsuario.dirty || f.nombreUsuario.touched)"
+              class="alert alert-danger">
+              <div *ngIf="f.nombreUsuario.errors.required">
+                Este campo es requerido
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="apellidoUsu" class="col-sm-3 col-form-label">Apellidos:</label>
+          <div class="col-sm-8">
+            <input id="apellidoUsu" type="text" formControlName="apellidoUsuario" class="form-control" required>
+            <br>
+            <div *ngIf="f.apellidoUsuario.invalid && (f.apellidoUsuario.dirty || f.apellidoUsuario.touched)"
+              class="alert alert-danger">
+              <div *ngIf="apellidoUsuario.errors.required">
+                Este campo es requerido
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="codUsu" class="col-sm-3 col-form-label">Usuario:</label>
+          <div class="col-sm-8">
+            <input id="codUsu" type="text" formControlName="codigoUsuario" class="form-control" required>
+            <br>
+            <div *ngIf="f.codigoUsuario.invalid && (f.codigoUsuario.dirty || f.codigoUsuario.touched)"
+              class="alert alert-danger">
+              <div *ngIf="f.codigoUsuario.errors.required">
+                Este campo es requerido
+              </div>
+            </div>
+          </div>
+        </div>        
+
+        <div class="form-group row" *ngIf="editar==false">
+          <label for="passwordUsu" class="col-sm-3 col-form-label">Contraseña:</label>
+          <div class="col-sm-8">
+            <input id="passwordUsu" type="password" formControlName="passwordUsuario" class="form-control" required>
+            <br>
+            <div *ngIf="f.passwordUsuario.invalid && (f.passwordUsuario.dirty || f.passwordUsuario.touched)"
+              class="alert alert-danger">
+              <div *ngIf="f.passwordUsuario.errors.required">
+                Este campo es requerido
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="CorreoUsu" class="col-sm-3 col-form-label">Correo:</label>
+          <div class="col-sm-8">
+            <input id="CorreoUsu" type="text" formControlName="CorreoUsuario" class="form-control" required>
+            <br>
+            <div *ngIf="f.CorreoUsuario.invalid && (f.CorreoUsuario.dirty || f.CorreoUsuario.touched)"
+              class="alert alert-danger">
+              <div *ngIf="f.CorreoUsuario.errors.required">
+                Este campo es requerido
+              </div>
+              <div *ngIf="f.CorreoUsuario.errors.email">El email ingresado no tiene formato correcto</div>
+            </div>
+          </div>
+        </div>        
+
+        <button type="submit" class="btn btn-primary" *ngIf="editar==false" [disabled]="!usuarioForm.valid" (click)="crearUsuario()">Guardar</button>
+        <button type="submit" class="btn btn-primary" *ngIf="editar==true" [disabled]="!usuarioForm.valid" (click)="actualizarUsuario()">Actualizar</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle"></i>Atención</h5>
+        <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </a>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de guardar el recurso?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="confirmarUsuario()" data-dismiss="modal">Aceptar</button>
+        <a href="#" class="btn btn-warning" data-dismiss="modal">Cancelar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" id="buscador" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Buscador de Personas</h5>
+        <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </a>
+      </div>
+      <div class="modal-body row">
+        <div class="col-md-3">
+          <nav>
+            <div class="form-wrapper">
+              <div class="top-block">
+                <h2 class="title-top">Filtros</h2>
+                <p>Criterios de b&#xFA;squeda.</p>
+              </div>
+              <div class="form" [formGroup]="filterForm">
+                <div class="form-group">
+                  <label class="control-label">Nombres:</label>
+                  <input type="text" class="form-control" formControlName="nombres" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Apellidos:</label>
+                  <input type="text" class="form-control" formControlName="apellidos" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Doc. Identidad:</label>
+                  <input type="text" class="form-control" formControlName="documento" />
+                </div>
+                <hr style="margin-bottom: 10px !important">
+                <a class="btn btn-default" (click)="limpiar()" style="margin-right: 3px"><i
+                    class="fa fa-ban"></i>&#xA0;Limpiar</a>
+                <div class="btn-divider">&nbsp;</div>
+                <a class="btn btn-default" (click)="buscar()"><i class="fa fa-arrow-right "></i>&#xA0;Filtrar</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <section class="col-md-9">
+          <section class="form-wrapper">
+            <div class="top-block">
+              <h2 class="title-top">Personas</h2>
+            </div>
+            <div>
+              <ng2-slim-loading-bar [color]="'blue'"></ng2-slim-loading-bar>
+              <div class="table-responsive">
+                <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustomAction($event)">
+                </ng2-smart-table>
+              </div>
+              <div class="d-flex justify-content-end">
+                <div class="p-2 bd-highlight pager">Filas por página {{ paginator.cantidad
+                      }}&nbsp;&nbsp;&nbsp;&nbsp;{{paginator.desde}}-{{paginator.hasta}} de {{paginator.total}} </div>
+                <i class="fa fa-angle-left action p-2 bd-highlight pager" aria-hidden="true"
+                  (click)="pagination(-1)"></i>&nbsp;&nbsp;
+                <i class="fa fa-angle-right action p-2 bd-highlight pager" aria-hidden="true"
+                  (click)="pagination(1)"></i>
+              </div>
+            </div>
+            <div class="form-footer" style="width: 100%;">
+              <div style="width: 100%;">
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-secondary" data-dismiss="modal" id="closeModal">Cancelar</a>
+      </div>
+    </div>
+  </div>
+</div>

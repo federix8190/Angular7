@@ -1,0 +1,21 @@
+<h4>
+  Pruebas con la Libreria Gráfica NGX-CHARTS10.1.0
+</h4>
+
+<p>ir a la <a href="https://swimlane.gitbook.io/ngx-charts/">Documentación </a></p>
+
+<h4>Bar Charts</h4>
+<ngx-charts-bar-vertical
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)">
+</ngx-charts-bar-vertical>

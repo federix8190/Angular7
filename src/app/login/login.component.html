@@ -1,0 +1,55 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+
+
+
+
+      <form class="login100-form validate-form" [formGroup]="loginForm">
+        <span class="login100-form-title p-b-48">
+          <img src="assets/img/konecta.png" />
+        </span>
+        <div class="alert alert-danger alert-dismissible" role="alert" style="padding: 10px;" *ngIf="showMessage">
+          {{ loginMessage }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <br />
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" name="email"  formControlName="username"
+          (blur)="valid()"
+          [ngClass]="{'has-val': validUsername}">
+          <span class="focus-input100" data-placeholder="Usuario o Email"></span>
+        </div>
+        <div class="wrap-input100 validate-input">
+						<span class="btn-show-pass" (click)="toggleShowPass()">
+							<i class="fas fa-eye" *ngIf="!showPass"></i>
+              <i class="fas fa-eye-slash" *ngIf="showPass"></i>
+						</span>
+          <input class="input100" type="{{ showPass ? 'text' : 'password' }}" name="pass"  formControlName="password"
+                 (blur)="valid()"
+                 (keyup.enter)="login()"
+                 [ngClass]="{'has-val': validPassword}">
+          <span class="focus-input100" data-placeholder="Password"></span>
+
+        </div>
+
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn" (click)="login()" [disabled]="disabledButton">
+              {{disabledButton?'Iniciando sesión...':'Iniciar sesión'}}&nbsp;&nbsp;<i class="fas fa-circle-notch fa-spin fa-fw" *ngIf="disabledButton"></i>
+            </button>
+          </div>
+        </div>
+
+
+      </form>
+
+      <div class="alert alert-primary" role="alert">
+        Usuario: demo, Contraseña: demo
+      </div>
+    </div>
+  </div>
+</div>

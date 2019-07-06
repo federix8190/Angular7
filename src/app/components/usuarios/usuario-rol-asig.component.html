@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="col-md-12 mb-4">
+    <div class="card border-0 rounded-0">
+      <div class="card-body">
+        <div style="margin: 0px 15px 15px 15px;">
+
+          <div class="row" >
+            <div class="multi-selected">
+              <div >
+                <!--div style="margin: 10px 0px;">
+                  <input type="text" class="form-control" [(ngModel)]="filter.rolesDisp" name="permisosDisp" (ngModelChange)="filtrarRolesDisponibles()" placeholder="Roles disponibles ...">
+                </div!-->
+                <h3>Roles Disponibles</h3>
+                <div class="input-multi">
+
+                  <select multiple size="10" id="from">
+                    <option value="{{r.id}}" class="selecteado" *ngFor="let r of rolesEnable; index as i">{{r.id}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="controls">
+                <div class="container-block">
+                  <button class="btn btn-multiselect moveAll" (click)="moveAll()">Asignar todos</button>
+                </div>
+                <div class="container-block">
+                  <button class="btn btn-multiselect moveOne" (click)="moveSelected()"><i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="container-block">
+                  <button class="btn btn-multiselect moveOne" (click)="removeSelected()"><i class="fas fa-arrow-left"></i></button>
+                </div>
+                <div class="container-block">
+                  <button class="btn btn-multiselect moveAll" (click)="removeAll()">Desasignar todos</button>
+                </div>
+
+              </div>
+              <div >
+                <!--div style="margin: 10px 0px;">
+                  <input type="text" class="form-control"  [(ngModel)]="filter.rolesAct" name="permisosAct" (ngModelChange)="filtrarRolesActuales()" placeholder="Roles actuales ...">
+                </div!-->
+                <h3>Roles Asignados</h3>
+                <div class="input-multi">
+
+                  <select multiple id="to" size="10" name="topics">
+                    <option value="{{r.id}}" class="selecteado"  *ngFor="let r of rolesAsig; index as i">{{r.id}}</option>
+                  </select>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+      <div style="margin:20px;">
+        <button type="button" class="btn btn-secondary" routerLink="/configuraciones/usuarios" style="float:right;margin: 0px 10px;">Cancelar</button>
+        <button type="button" class="btn  btn-primary " (click)="asignarRoles()" style="float:right;">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>

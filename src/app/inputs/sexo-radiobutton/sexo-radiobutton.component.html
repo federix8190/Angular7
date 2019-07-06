@@ -1,0 +1,9 @@
+<div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model" (click)="cambioEstado()">
+  <label ngbButtonLabel class="btn-primary">
+    <input ngbButton type="radio" value="M">Masculino
+  </label>
+  <label ngbButtonLabel class="btn-primary">
+    <input ngbButton type="radio" [value]="1">Femenino
+  </label>
+</div>
+

@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-body">
+    <h3>Inputs Module</h3>
+    <p>Contiene una gran variedad de componentes reutilizables para formularios</p>
+    <h5>Checkboxes</h5>
+    <p></p>
+    <app-checkboxes [type]="'checkbox'" [checkboxOptions]="[{'id':'check1','value':'Opcion1','disabled':false},{'id':'check2','value':'Opcion2','disabled':false},{'id':'check3','value':'Opcion3','disabled':false}]"></app-checkboxes>
+
+    <h5>Switch</h5>
+    <p></p>
+      <app-switch [label]="'Activar Switch'" (cambioEstado)="verEstadoSwitch($event)"></app-switch>
+    <h5>Select Number</h5>
+    <p></p>
+    <app-select-number (outNumber)="printNroSelected($event)" [label]="'Nro del 10 al 100'"  [min]="10" [max]="100" [placeholder]="'Elija un nro.'"></app-select-number>
+    <h5>Datepicker</h5>
+    <p></p>
+    <app-datepicker></app-datepicker>
+
+    <h5>Subir Archivos</h5>
+    <p></p>
+    <app-file-up></app-file-up>
+
+    <h5>Email Type</h5>
+    <p></p>
+    <app-email-input [label]="'Correo Electronico'" [placeholder]="'Escriba su correo...'"></app-email-input>
+
+    <h5>Sexo </h5>
+    <p></p>
+    <app-sexo-radiobutton></app-sexo-radiobutton>
+  </div>
+</div>

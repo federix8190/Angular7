@@ -1,0 +1,54 @@
+.btn-multiselect{
+  width: 150px;
+  background-color: #ffcfe1 !important;
+  height: 50px;
+}
+.btn-multiselect:hover{
+  background-color:#f6a7c5 !important;
+}
+.selecteado{
+  margin: 10px;
+}
+select {
+  width: 290px;
+  float: left;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.controls {
+  width: 100%;
+  display: grid;
+  text-align: center;
+  margin: 45px 0px 0px 0px !important;
+  grid-template-rows: repeat(4,auto);
+}
+.controls a {
+  color: black;
+  margin-top: auto;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+
+  width: 100%;
+}
+
+.multi-selected{
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  width:100%;
+}
+
+.moveOne, .moveAll{
+  cursor: pointer;
+}
+
+.input-multi{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-block {
+  padding-top: 1% !important;
+}

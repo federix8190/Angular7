@@ -1,0 +1,7 @@
+<div class="form-group">
+  <label for="inputState">{{label}}</label>
+  <select id="inputState" class="form-control" (change)="seleccion($event)">
+    <option selected>{{placeholder}}</option>
+    <option *ngFor="let nro of opciones">{{nro}}</option>
+  </select>
+</div>

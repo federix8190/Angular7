@@ -1,0 +1,62 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+  
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}
+
+.form-wrapper {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #dce1e8;
+    color: #333538;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+    .top-block {
+        .title-top {
+            margin: 0px;
+            font-size: 18px;
+            padding: 10px 15px;
+            background: #a94442;
+            color: #fff;
+        }
+        p {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+    .wrapper {
+        background: #f4f4f4;
+        padding: 25px;
+        border: 1px solid #dce1e8;
+        color: #868b91;
+        border-radius: 4px;
+        label.control-label {
+            text-align: left;
+            font-weight: bold;
+        }
+        .table {
+            color: #333538;
+            tr {
+                //  background: white;
+            }
+        }
+    }
+    .form-footer {
+        padding: 15px 0px 0px 0px;
+        display: inline-flex;
+        .btn {
+            margin-right: 5px;
+        }
+    }
+}
+
+.btn-divider {
+    border-right: 1px solid #dce1e8;
+    border-left: 1px solid white;
+    margin-right: 8.2px;
+    display: inline-block;
+    margin-bottom: -15px;
+}

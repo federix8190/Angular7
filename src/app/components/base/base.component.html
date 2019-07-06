@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="card border-0 rounded-0">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary btn-sm" (click)="toggleFiltro()">Opciones
+              de filtrado<i class="fas fa-caret-down icon-btn"></i></button>&nbsp;&nbsp;
+              <button type="button" class="btn btn-light btn-sm" (click)="limpiar()">Limpiar<i class="fas fa-broom icon-btn"></i></button></div>
+          <div class="p-2 bd-highlight"><button type="button" class="btn btn-success btn-sm" (click)="buscar()">Buscar<i class="fas fa-search icon-btn"></i></button></div>
+        </div>
+        <div *ngIf="mostrarFiltro">
+          <div class="card card-body">
+              <form [formGroup]="filterForm">
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputNombre4">Nombre</label>
+                        <input type="text" class="form-control form-control-sm" id="inputNombre4" placeholder="Nombre" formControlName="nombres">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputApellido4">Apellido</label>
+                        <input type="text" class="form-control form-control-sm" id="inputApellido4" placeholder="Apellido"  formControlName="apellidos">
+                      </div>
+                    <!--div class="form-group col-md-6">
+                      <label for="inputRUC4">RUC</label>
+                      <input type="text" class="form-control form-control-sm" id="inputRUC4" placeholder="RUC" formControlName="ruc">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputDoc4">Doc. Identidad</label>
+                      <input type="text" class="form-control form-control-sm" id="inputDoc4" placeholder="Doc. Identidad" formControlName="documento">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control form-control-sm" id="inputAddress" placeholder="1234 Main St" formControlName="direccion">
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail">Email</label>
+                      <input type="email" class="form-control form-control-sm" id="inputEmail" formControlName="email">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputZip">Fecha Nacimiento</label>
+                        <input type="date" class="form-control form-control-sm" id="inputZip"  formControlName="fechaNacimiento">
+                    </div>
+                    <div class="form-group col-md-2">
+                      
+                      <label for="inputSexo">Sexo</label>
+                      <select id="inputSexo" class="form-control form-control-sm"  formControlName="sexo">
+                        <option selected>Seleccione...</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+                      </select>
+                    </div>
+                  </div!-->
+                </form>
+          </div>
+        </div>
+        <div>
+          <ng2-slim-loading-bar [color]="'blue'"></ng2-slim-loading-bar>
+          <div class="table-responsive">
+            <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustomAction($event)"></ng2-smart-table>
+          </div>
+          <div class="d-flex justify-content-end">
+            <div class="p-2 bd-highlight pager">Filas por página {{ paginator.cantidad
+              }}&nbsp;&nbsp;&nbsp;&nbsp;{{paginator.desde}}-{{paginator.hasta}} de {{paginator.total}} </div>
+            <i class="fa fa-angle-left action p-2 bd-highlight pager" aria-hidden="true" (click)="pagination(-1)"></i>&nbsp;&nbsp;
+            <i class="fa fa-angle-right action p-2 bd-highlight pager" aria-hidden="true" (click)="pagination(1)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
